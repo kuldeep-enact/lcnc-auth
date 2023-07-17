@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const AuthController = require('../controller/userController'); 
+const AuthController = require('../controller/authController'); 
 const { checkLoggedIn } = require('../utills/helper');
 const upload = require('../utills/uploadImage');
 const {verifyToken} = require('../utills/helper');
 
-const { registerValidationRules, validate,loginValidationRules,forgotPasswordValidationRules,changePasswordRules } = require('../validator/authValidation');
+const { registerValidationRules, validate,loginValidationRules,forgotPasswordValidationRules,changePasswordRules } = require('../validator/validationRule');
 
 
 router.post('/register', registerValidationRules(),validate,AuthController.register);
