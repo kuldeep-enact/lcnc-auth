@@ -7,7 +7,7 @@ const UploadImage = require('../utills/uploadImage');
 const { token } = require('morgan');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const user = require('../models/user');
+const user = require('../models/auth');
 
 
 const LinkExpiredModel = models.LinkExpired;

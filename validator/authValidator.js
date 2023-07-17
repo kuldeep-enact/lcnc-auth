@@ -1,4 +1,4 @@
-export function registerValidationRules() {
+exports.registerValidationRules = () => {
     return [
       body('account_type').exists().notEmpty().trim().withMessage('account type is required.'),
       body('authentication_type').exists().notEmpty().trim().withMessage('authentication type is required.'),
@@ -10,11 +10,27 @@ export function registerValidationRules() {
       body('social_id').if(body('authentication_type').equals('2')).notEmpty().withMessage('social id is required.'),
       body('social_id').if(body('authentication_type').equals('3')).notEmpty().withMessage('social id is required.'),
     ];
-  }
-  
-export function loginValidationRules() {
+  };
+    
+  exports.loginValidationRules = () => {
     return [
       body('email').exists().notEmpty().trim().withMessage('Email is required.'),
       body('password').exists().notEmpty().trim().withMessage('Password is required.'),
     ];
-  }
+  };
+  exports.forgotPasswordValidationRules = () => {
+    return [
+      body('email').exists().notEmpty().trim().withMessage('email is required.'),
+   
+        
+    ];
+  };
+  exports.changePasswordRules = () => {
+    return [
+      body('old_password').exists().notEmpty().trim().withMessage('old_password is required.'),
+      
+      body('new_password').exists().notEmpty().trim().withMessage('new_password is required.'),
+    
+        
+    ];
+  };
